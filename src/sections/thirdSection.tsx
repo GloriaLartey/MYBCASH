@@ -27,21 +27,23 @@ export default function ThirdSection() {
     offset: ["start 0.03", "end 0.5"],
   });
 
-  // ── Balance counts up as you scroll down, back down as you scroll up
-  const balanceRaw = useTransform(
+ const balanceRaw = useTransform(
     scrollYProgress,
     [0.05, 0.65],
-    [0, targetBalance],
+    [185450425, targetBalance],
   );
+
   useMotionValueEvent(balanceRaw, "change", (v) => {
-    setDisplayBalance(Math.max(0, Math.round(v)));
+    setDisplayBalance(Math.max(185450425, Math.round(v)));
   });
 
   const listMaxScroll = Currencies.length * itemHeight - visibleHeight;
   const listY = useTransform(scrollYProgress, [0.9, 0.85], [0, -listMaxScroll]);
 
   return (
-    <section ref={sectionRef} className="bg-black px-4 py-20 sm:px-6 lg:px-10 font-jakarta">
+    <section
+      ref={sectionRef}
+      className="bg-black px-4 py-20 sm:px-6 lg:px-10 font-jakarta">
       <div className="mx-auto max-w-[1080px]">
         <div className="grid gap-6 grid-cols-1 font-jakarta lg:grid-cols-2">
           {/* dark card */}

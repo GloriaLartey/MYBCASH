@@ -78,11 +78,11 @@ export const targetBalance = 785450425;
 export const itemHeight = 76; // px, including gap
 export const visibleHeight = 200; // px, visible window for the scrolling list
 
-export const sparkLines = [
-  "M0 14 L8 9 L16 16 L24 6 L32 12 L40 4 L48 10 L56 3",
-  "M0 8 L8 13 L16 6 L24 15 L32 9 L40 14 L48 5 L56 11",
-  "M0 12 L8 5 L16 10 L24 3 L32 13 L40 7 L48 15 L56 9",
-];
+// export const sparkLines = [
+//   "M0 14 L8 9 L16 16 L24 6 L32 12 L40 4 L48 10 L56 3",
+//   "M0 8 L8 13 L16 6 L24 15 L32 9 L40 14 L48 5 L56 11",
+//   "M0 12 L8 5 L16 10 L24 3 L32 13 L40 7 L48 15 L56 9",
+// ];
 
 export const statusBar = ["/data-bars.png", "/wifi.png", "battery.png"]
 
