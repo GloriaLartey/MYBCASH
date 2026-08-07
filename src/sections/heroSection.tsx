@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { useNavStore } from "../store/useNavStore";
-import {navLinks} from "../dataStore/datafile";
+import { navLinks } from "../dataStore/datafile";
 import PurpleCard from "../components/heroSectionComponents/purpleCard";
 import DarkCard from "../components/heroSectionComponents/darkCard";
 import Logos from "../components/heroSectionComponents/logos";
@@ -19,7 +19,7 @@ export default function HeroSection() {
   return (
     <div className="relative z-10 bg-black overflow-hidden font-jakarta">
       <nav
-        className={`sticky top-0 z-50 flex items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-10 ${
+        className={`fixed inset-x-0 top-0 z-[60] flex w-full items-center justify-between px-4 transition-all duration-300 sm:px-6 lg:px-10 ${
           isScrolled
             ? "bg-black/90 py-3 shadow-lg shadow-black/30 backdrop-blur-md"
             : "bg-black py-5"
@@ -59,11 +59,10 @@ export default function HeroSection() {
         </button>
       </nav>
 
-      {/*Main hero content */}
-      <section className="bg-black px-4 pb-10 pt-6 sm:px-6 lg:px-10">
+      <section className="bg-black px-3 pb-10 pt-24 sm:px-6 sm:pb-12 sm:pt-28 lg:px-10 lg:pb-14 lg:pt-32">
         <div className="mx-auto max-w-[1130px]">
           <div className="grid grid-cols-1 lg:grid-cols-2">
-          <DarkCard />
+            <DarkCard />
             <PurpleCard />
           </div>
           <Logos />

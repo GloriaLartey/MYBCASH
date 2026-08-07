@@ -1,4 +1,4 @@
-import {useTransform, type MotionValue} from "framer-motion";
+import { useTransform, type MotionValue } from "framer-motion";
 export function useStaggeredRise(
   progress: MotionValue<number>,
   range: [number, number],

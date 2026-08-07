@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useReducedMotion } from "framer-motion";
 import { barHeights } from "../../dataStore/datafile";
 import { useStaggeredRise } from "../../hooks/staggeredRise";
@@ -28,21 +28,19 @@ export default function BlueCard() {
   const useMobileStagger = isMobileOrTablet && mounted && !shouldReduceMotion;
 
   return (
-    <div ref={bottomRowRef} className="h-75">
+    <div ref={bottomRowRef} className="h-full">
       <motion.div
         style={useMobileStagger ? {} : noMotion ? {} : card3}
         initial={useMobileStagger ? { opacity: 0, y: 24 } : undefined}
         animate={useMobileStagger ? { opacity: 1, y: 0 } : undefined}
-        transition={{ duration: 0.65, delay: 0.24, ease: "easeOut" }}
-        className="flex h-full w-full min-h-[200px] flex-col items-center justify-center rounded-[28px] bg-[#5A54FF] px-4 py-7 text-center sm:min-h-[200px] sm:px-5 sm:py-8 lg:min-h-[200px] lg:px-5 lg:py-7 lg:text-center">
-        <h3 className="text-xl font-semibold text-white">
-          Transaction Tracking
-        </h3>
-        <p className=" text-xs text-white/85">
+        transition={{ duration: 0.65, delay: 0.2, ease: "easeOut" }}
+        className="rounded-[28px] bg-[#5A54FF] px-6 py-8 text-center sm:px-8 sm:py-9 lg:px-7 lg:py-8 lg:text-left">
+        <h3 className="text-xl font-semibold text-white">Transaction Tracking</h3>
+        <p className="mt-1 text-xs text-white/85">
           Monitor your transactions in real-time
         </p>
 
-        <div className="mt-auto flex h-34 w-full max-w-[260px] items-end justify-between gap-2 sm:max-w-none">
+        <div className="mt-10 flex h-34 items-end justify-between gap-2">
           {barHeights.map((h, i) => (
             <div key={i} className="flex flex-1 flex-col items-center">
               <span className="mb-1 h-1 w-1 rounded-full bg-white" />

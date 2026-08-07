@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import {motion, useReducedMotion} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useCardReveal } from "../hooks/sideWaysMovement";
 import GreenCards from "../components/secondSectionComponents/greenCards";
 import PinkCard from "../components/secondSectionComponents/pinkCard";
@@ -13,7 +13,6 @@ export default function SecondSection() {
   const header = useCardReveal("left");
 
   const bottomRowRef = useRef<HTMLDivElement>(null);
- 
 
   return (
     <section className="bg-black px-4 py-17 font-jakarta sm:px-6 lg:px-10">
@@ -35,16 +34,41 @@ export default function SecondSection() {
             Meet the new era of transactions
           </h2>
         </motion.div>
-        <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-3">
-         <GreenCards />
-       <PinkCard />
+
+        <div className="mt-12 sm:hidden">
+          <GreenCards />
+          <div className="mt-4 flex flex-col gap-4">
+            <PinkCard />
+            <OrangeCard />
+            <BlueCard />
+            <PurpleCard />
+          </div>
         </div>
-        <div
-          ref={bottomRowRef}
-          className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
-          <OrangeCard />
-          <BlueCard />
-          <PurpleCard />
+
+        <div className="mt-12 hidden sm:block lg:hidden">
+          <GreenCards />
+          <div className="mt-4 grid grid-cols-2 gap-4">
+            <PinkCard />
+            <OrangeCard />
+          </div>
+          <div className="mt-4 grid grid-cols-2 gap-4">
+            <BlueCard />
+            <PurpleCard />
+          </div>
+        </div>
+
+        <div className="mt-12 hidden lg:block">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <GreenCards />
+            <PinkCard />
+          </div>
+          <div
+            ref={bottomRowRef}
+            className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <OrangeCard />
+            <BlueCard />
+            <PurpleCard />
+          </div>
         </div>
       </div>
     </section>

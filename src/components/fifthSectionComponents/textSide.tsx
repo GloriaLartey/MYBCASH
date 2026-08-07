@@ -1,3 +1,4 @@
+// TextSide.tsx
 import { useRef } from "react";
 import {
   motion,
@@ -51,9 +52,10 @@ export default function TextSide() {
   });
   return (
     <>
+    <div ref={sectionRef}>
       <motion.div
         style={shouldReduceMotion ? {} : { opacity: textOpacity, y: textY }}
-        className="pt-16 ">
+        className="flex flex-col items-center pt-8 text-center lg:items-start lg:pt-16 lg:text-left">
         <span
           style={{
             background:
@@ -63,16 +65,16 @@ export default function TextSide() {
           We Are Available
         </span>
 
-        <h2 className=" mt-6 max-w-md text-3xl font-semibold leading-tight text-white sm:text-4xl">
+        <h2 className="pt-6 max-w-md text-2xl font-semibold leading-tight text-white sm:text-3xl lg:text-4xl">
           Bridging the distance, one transaction at a time
         </h2>
 
-        <p className="mt-1 max-w-xl w-200 text-xs leading-relaxed text-white">
+        <p className="pt-1 max-w-xl text-xs leading-relaxed text-white">
           With the MYBCASH virtual cards, you can effortlessly navigate the
           global landscape and embrace new experiences.
         </p>
 
-        <div className=" mt-45 flex flex-wrap items-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:mt-45 lg:justify-start">
           <button className="flex items-center gap-3 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 py-1 pl-6 pr-1 text-sm font-semibold text-white shadow-lg shadow-orange-900/20 transition-transform duration-300 hover:scale-[1.04]">
             Download App
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white">
@@ -96,7 +98,7 @@ export default function TextSide() {
           </button>
         </div>
 
-        <div className="mt-5 ml-4 flex items-center gap-1">
+        <div className="mt-5 ml-4 hidden items-center gap-1 lg:flex">
           <div className="flex -space-x-2">
             {avatarColors.map((color, i) => (
               <div
@@ -119,6 +121,7 @@ export default function TextSide() {
           </div>
         </div>
       </motion.div>
+        </div>
     </>
   );
 }

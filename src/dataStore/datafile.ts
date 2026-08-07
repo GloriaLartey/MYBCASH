@@ -10,7 +10,7 @@ export const brandLogos = [
 ];
 
 export const avatarColors = ["#BB9FFC", "#EB67A0", "#40B825"];
-export const avatarImages = ["/avatar3.png", "/avatar2.png", "/avatar1.png"];
+export const avatarImages = ["/avatar3.webp", "/avatar2.webp", "/avatar1.webp"];
 export const phoneAvatarImages = ["/hp-1.jpg", "/hp-2.jpg", "/hp-3.jpg", "/hp-4.jpg"];
 
 
@@ -72,6 +72,7 @@ export const Currencies = [
     amount: "$1,264",
     positive: true,
   },
+  
 ];
 
 export const targetBalance = 785450425;

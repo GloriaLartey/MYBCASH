@@ -16,14 +16,14 @@ export default function SixthSection() {
   });
   const { scrollYProgress: listProgress } = useScroll({
     target: listRef,
-    offset: ["start 0.95", "start 0.25"],
+    offset: ["start 0.95", "start 0.55"],
   });
 
   const headerOpacity = useTransform(headerProgress, [0, 1], [0, 1]);
   const headerY = useTransform(headerProgress, [0, 1], [20, 0]);
 
   return (
-    <section className="bg-black px-4 py-8 pb-20 font-jakarta sm:px-6 lg:px-10">
+    <section className="bg-black px-4 py-10 font-jakarta sm:px-6 lg:px-10">
       <div className="mx-auto max-w-[1000px]">
 
         <motion.h2
