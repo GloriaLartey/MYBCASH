@@ -1,10 +1,9 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import React from "react"; // Added to enable clean performance memoization
+import React from "react";
 import { FAQS } from "../dataStore/datafile";
 import { FaqCard } from "../components/sixthSectionComponents/faqCard";
 
-// OPTIMIZATION: Cache card components to stop scroll stuttering on localhost
 const MemoizedFaqCard = React.memo(FaqCard);
 
 export default function SixthSection() {
@@ -19,7 +18,7 @@ export default function SixthSection() {
   });
   const { scrollYProgress: listProgress } = useScroll({
     target: listRef,
-    offset: ["start 0.95", "start 0.55"],
+    offset: ["start 0.95", "start 0.95"],
   });
 
   const headerOpacity = useTransform(headerProgress, [0, 1], [0, 1]);

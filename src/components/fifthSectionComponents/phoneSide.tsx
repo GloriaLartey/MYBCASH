@@ -12,7 +12,7 @@ function PhoneSideComponent({ controls }: PhoneSideProps) {
       <motion.div
         initial={{ x: 280, opacity: 0 }}
         animate={controls}
-        className="relative lg:top-20 -right-30  top-10 w-[78%] max-w-[300px] sm:w-[68%] sm:max-w-[400px] lg:right-0 lg:w-full lg:max-w-[590px]"
+        className="relative lg:top-20 -right-30 top-10 w-[78%] max-w-[300px] sm:w-[68%] sm:max-w-[400px] lg:right-0 lg:w-full lg:max-w-[590px]"
       >
         <img
           src="/hand-phone.png"
@@ -21,7 +21,7 @@ function PhoneSideComponent({ controls }: PhoneSideProps) {
         />
       </motion.div>
 
-      <div className="absolute bottom-0 left-0 z-10 flex items-center gap-1 lg:hidden">
+      <div className="absolute bottom-5 left-0 z-10 flex items-center gap-1 lg:hidden">
         <div className="flex -space-x-2">
           {avatarColors.map((color, i) => (
             <div
