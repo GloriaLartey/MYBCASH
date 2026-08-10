@@ -8,11 +8,11 @@ interface PhoneSideProps {
 
 function PhoneSideComponent({ controls }: PhoneSideProps) {
   return (
-    <div className="relative flex justify-start overflow-hidden sm:justify-center lg:block lg:justify-start lg:overflow-visible">
+    <div className="relative flex justify-start overflow-hidden sm:justify-center lg:block lg:justify-start overflow-visible">
       <motion.div
         initial={{ x: 280, opacity: 0 }}
         animate={controls}
-        className="absolute lg:top-20 top-30 w-[78%] max-w-[300px] sm:w-[68%] sm:max-w-[400px] lg:w-full lg:max-w-[590px]"
+        className="relative lg:top-20 -right-30  top-10 w-[78%] max-w-[300px] sm:w-[68%] sm:max-w-[400px] lg:right-0 lg:w-full lg:max-w-[590px]"
       >
         <img
           src="/hand-phone.png"

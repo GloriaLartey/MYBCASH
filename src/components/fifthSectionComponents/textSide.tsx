@@ -25,10 +25,10 @@ export default function TextSide() {
 
   return (
     <>
-      <div ref={localTextRef}>
+      <div ref={localTextRef} >
         <motion.div
           style={computedTextStyle}
-          className="flex flex-col items-center py-5 text-center lg:items-start lg:py-8 lg:text-left"
+          className="flex flex-col items-center text-center lg:items-start lg:py-8 lg:text-left"
         >
           <span
             style={{
@@ -40,16 +40,16 @@ export default function TextSide() {
             We Are Available
           </span>
 
-          <h2 className="pt-6 max-w-md text-2xl font-semibold leading-tight text-white sm:text-3xl lg:text-4xl">
+          <h2 className="pt-6  text-2xl font-semibold leading-tight text-white sm:text-3xl lg:text-4xl">
             Bridging the distance, one transaction at a time
           </h2>
 
-          <p className="pt-1 max-w-xl text-xs leading-relaxed text-white">
+          <p className="pt-1  text-xs leading-relaxed text-white">
             With the MYBCASH virtual cards, you can effortlessly navigate the
             global landscape and embrace new experiences.
           </p>
 
-          <div className="my-auto flex flex-wrap items-center justify-center gap-4 lg:mt-45 lg:justify-start">
+          <div className="my-auto mt-2 flex flex-wrap items-center justify-center gap-4 lg:mt-45 lg:justify-start">
             <button className="flex items-center gap-3 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 py-1 pl-6 pr-1 text-sm font-semibold text-white shadow-lg shadow-orange-900/20 transition-transform duration-300 hover:scale-[1.04]">
               Download App
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white">
@@ -73,7 +73,7 @@ export default function TextSide() {
             </button>
           </div>
 
-          <div className="mt-5 ml-4 hidden items-center gap-1 lg:flex">
+          <div className=" ml-4 hidden sm:m-3 items-center gap-1 lg:flex">
             <div className="flex -space-x-2">
               {avatarColors.map((color, i) => (
                 <div
