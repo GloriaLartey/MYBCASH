@@ -1,8 +1,11 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import React from "react"; // Added to enable clean performance memoization
 import { FAQS } from "../dataStore/datafile";
 import { FaqCard } from "../components/sixthSectionComponents/faqCard";
 
+// OPTIMIZATION: Cache card components to stop scroll stuttering on localhost
+const MemoizedFaqCard = React.memo(FaqCard);
 
 export default function SixthSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -36,7 +39,7 @@ export default function SixthSection() {
 
         <div ref={listRef} className="mt-10 flex flex-col gap-4">
           {FAQS.map((faq, i) => (
-            <FaqCard
+            <MemoizedFaqCard
               key={faq.question}
               faq={faq}
               index={i}

@@ -1,10 +1,15 @@
 import { useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
+import React from "react"; // Added to enable structural optimization
 import { useNavStore } from "../store/useNavStore";
 import { navLinks } from "../dataStore/datafile";
 import PurpleCard from "../components/heroSectionComponents/purpleCard";
 import DarkCard from "../components/heroSectionComponents/darkCard";
 import Logos from "../components/heroSectionComponents/logos";
+
+const MemoizedDarkCard = React.memo(DarkCard);
+const MemoizedPurpleCard = React.memo(PurpleCard);
+const MemoizedLogos = React.memo(Logos);
 
 export default function HeroSection() {
   const { activeLink, setActiveLink, isScrolled, setIsScrolled } =
@@ -16,6 +21,7 @@ export default function HeroSection() {
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [setIsScrolled]);
+
   return (
     <div className="relative z-10 bg-black overflow-hidden font-jakarta">
       <nav
@@ -62,10 +68,10 @@ export default function HeroSection() {
       <section className="bg-black px-3 pb-10 pt-24 sm:px-6 sm:pb-12 sm:pt-28 lg:px-10 lg:pb-14 lg:pt-32">
         <div className="mx-auto max-w-[1130px]">
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            <DarkCard />
-            <PurpleCard />
+            <MemoizedDarkCard />
+            <MemoizedPurpleCard />
           </div>
-          <Logos />
+          <MemoizedLogos />
         </div>
       </section>
     </div>

@@ -1,11 +1,19 @@
 import { useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import React from "react"; // Added to enable structural optimization
 import { useCardReveal } from "../hooks/sideWaysMovement";
 import GreenCards from "../components/secondSectionComponents/greenCards";
 import PinkCard from "../components/secondSectionComponents/pinkCard";
 import OrangeCard from "../components/secondSectionComponents/orangeCard";
 import BlueCard from "../components/secondSectionComponents/blueCard";
 import PurpleCard from "../components/secondSectionComponents/purpleCard";
+
+// OPTIMIZATION: Memoize structural child components to stop local rendering overhead
+const MemoizedGreenCards = React.memo(GreenCards);
+const MemoizedPinkCard = React.memo(PinkCard);
+const MemoizedOrangeCard = React.memo(OrangeCard);
+const MemoizedBlueCard = React.memo(BlueCard);
+const MemoizedPurpleCard = React.memo(PurpleCard);
 
 export default function SecondSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -36,38 +44,38 @@ export default function SecondSection() {
         </motion.div>
 
         <div className="mt-12 sm:hidden">
-          <GreenCards />
+          <MemoizedGreenCards />
           <div className="mt-4 flex flex-col gap-4">
-            <PinkCard />
-            <OrangeCard />
-            <BlueCard />
-            <PurpleCard />
+            <MemoizedPinkCard />
+            <MemoizedOrangeCard />
+            <MemoizedBlueCard />
+            <MemoizedPurpleCard />
           </div>
         </div>
 
         <div className="mt-12 hidden sm:block lg:hidden">
-          <GreenCards />
+          <MemoizedGreenCards />
           <div className="mt-4 grid grid-cols-2 gap-4">
-            <PinkCard />
-            <OrangeCard />
+            <MemoizedPinkCard />
+            <MemoizedOrangeCard />
           </div>
           <div className="mt-4 grid grid-cols-2 gap-4">
-            <BlueCard />
-            <PurpleCard />
+            <MemoizedBlueCard />
+            <MemoizedPurpleCard />
           </div>
         </div>
 
         <div className="mt-12 hidden lg:block">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-            <GreenCards />
-            <PinkCard />
+            <MemoizedGreenCards />
+            <MemoizedPinkCard />
           </div>
           <div
             ref={bottomRowRef}
             className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
-            <OrangeCard />
-            <BlueCard />
-            <PurpleCard />
+            <MemoizedOrangeCard />
+            <MemoizedBlueCard />
+            <MemoizedPurpleCard />
           </div>
         </div>
       </div>

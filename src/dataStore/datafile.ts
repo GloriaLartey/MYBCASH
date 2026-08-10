@@ -11,17 +11,17 @@ export const brandLogos = [
 
 export const avatarColors = ["#BB9FFC", "#EB67A0", "#40B825"];
 export const avatarImages = ["/avatar3.webp", "/avatar2.webp", "/avatar1.webp"];
-export const phoneAvatarImages = ["/hp-1.jpg", "/hp-2.jpg", "/hp-3.jpg", "/hp-4.jpg"];
+export const phoneAvatarImages = ["/hp-1.webp", "/hp-2.webp", "/hp-3.webp", "/hp-4.webp"];
 
 
 //-------------------------------------------Second section data---------------------------------------------
 export const currencies = [
-  { flag: "/us-flag.png", code: "USD", amount: "$10,584.12" },
-  { flag: "/ca-flag.png", code: "CAD", amount: "$10,584.12" },
+  { flag: "/us-flag.webp", code: "USD", amount: "$10,584.12" },
+  { flag: "/ca-flag.webp", code: "CAD", amount: "$10,584.12" },
 ];
 
 export const barHeights = [110, 72, 120, 80, 110, 72, 100, 54, 90];
-export const countryFlags = ["/flag-1.png", "/flag-2.png", "/flag-3.png"];
+export const countryFlags = ["/flag-1.webp", "/flag-2.webp", "/flag-3.webp"];
 
 //------------------------------------------Third section data-----------------------------------------------
 export const Features = [
@@ -39,11 +39,11 @@ export const Currencies = [
   {
     code: "GBP",
     name: "British Pound",
-    flag: "/ts-flag-1.png",
+    flag: "/ts-flag-1.webp",
     amount: "$1,264",
     positive: true,
   },
-  { code: "EUR", name: "Euro", flag: "/flag-1.png", amount: "$1,029", positive: true },
+  { code: "EUR", name: "Euro", flag: "/flag-1.webp", amount: "$1,029", positive: true },
   {
     code: "INR",
     name: "India Rupee",
@@ -54,21 +54,21 @@ export const Currencies = [
   {
     code: "COP",
     name: "Columbian Peso",
-    flag: "/flag-3.png",
+    flag: "/flag-3.webp",
     amount: "$812",
     positive: true,
   },
   {
     code: "USD",
     name: "United States Dollar",
-    flag: "/flag-2.png",
+    flag: "/flag-2.webp",
     amount: "-$18.42",
     positive: false,
   },
   {
     code: "GBP",
     name: "British Pound",
-    flag: "/ts-flag-1.png",
+    flag: "/ts-flag-1.webp",
     amount: "$1,264",
     positive: true,
   },
@@ -79,13 +79,8 @@ export const targetBalance = 785450425;
 export const itemHeight = 76; // px, including gap
 export const visibleHeight = 200; // px, visible window for the scrolling list
 
-// export const sparkLines = [
-//   "M0 14 L8 9 L16 16 L24 6 L32 12 L40 4 L48 10 L56 3",
-//   "M0 8 L8 13 L16 6 L24 15 L32 9 L40 14 L48 5 L56 11",
-//   "M0 12 L8 5 L16 10 L24 3 L32 13 L40 7 L48 15 L56 9",
-// ];
 
-export const statusBar = ["/data-bars.png", "/wifi.png", "battery.png"]
+export const statusBar = ["/data-bars.webp", "/wifi.webp", "battery.png"]
 
 
 //------------------------------Fourth section data------------------------------------
@@ -95,7 +90,7 @@ export const testimonials = [
     name: "Lisa",
     role: "Traveller",
     rating: "4.9",
-    avatar: "/testimonial-img1.jpg",
+    avatar: "/testimonial-img1.webp",
     quote:
       "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
   },
@@ -103,7 +98,7 @@ export const testimonials = [
     name: "Jeremy Davidson",
     role: "Expat",
     rating: "4.8",
-    avatar: "/testimonial-img2.jpg",
+    avatar: "/testimonial-img2.webp",
     quote:
       "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
   },
@@ -111,7 +106,7 @@ export const testimonials = [
     name: "Daniel",
     role: "Freelancer",
     rating: "4.9",
-    avatar: "/testimonial-img3.jpg",
+    avatar: "/testimonial-img3.webp",
     quote:
       "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
   },
@@ -119,7 +114,7 @@ export const testimonials = [
     name: "Jenny",
     role: "Online Seller",
     rating: "3.2",
-    avatar: "/testimonial-img4.jpg",
+    avatar: "/testimonial-img4.webp",
     quote:
       "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
   },
@@ -127,7 +122,7 @@ export const testimonials = [
     name: "Sarah",
     role: "Student",
     rating: "4.8",
-    avatar: "/testimonial-img5.jpg",
+    avatar: "/testimonial-img5.webp",
     quote:
       "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
   },
@@ -135,7 +130,7 @@ export const testimonials = [
     name: "Isabelle",
     role: "Investor",
     rating: "3.9",
-    avatar: "/testimonial-img6.jpg",
+    avatar: "/testimonial-img6.webp",
     quote:
       "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
   },

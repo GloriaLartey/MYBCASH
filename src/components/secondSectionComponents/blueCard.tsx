@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useReducedMotion, type MotionStyle } from "framer-motion";
 import { barHeights } from "../../dataStore/datafile";
 import { useStaggeredRise } from "../../hooks/staggeredRise";
 
@@ -19,18 +19,33 @@ export default function BlueCard() {
 
   useEffect(() => {
     setMounted(true);
-    const handleResize = () => setIsMobileOrTablet(window.innerWidth < 1024);
+    
+    // FIX: Debounce resize calculations to eliminate high-frequency layout parsing lag on localhost
+    let timeoutId: ReturnType<typeof setTimeout>;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setIsMobileOrTablet(window.innerWidth < 1024);
+      }, 100);
+    };
+
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const useMobileStagger = isMobileOrTablet && mounted && !shouldReduceMotion;
 
+  // FIX: Explicitly typecast your conditional style objects to prevent standard Framer Motion v12 intrinsic errors
+  const computedCardStyle = (useMobileStagger ? {} : noMotion ? {} : card3) as MotionStyle;
+
   return (
     <div ref={bottomRowRef} className="h-75">
       <motion.div
-        style={useMobileStagger ? {} : noMotion ? {} : card3}
+        style={computedCardStyle}
         initial={useMobileStagger ? { opacity: 0, y: 24 } : undefined}
         animate={useMobileStagger ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.65, delay: 0.24, ease: "easeOut" }}

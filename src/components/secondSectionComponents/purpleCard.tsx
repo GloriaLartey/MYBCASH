@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useReducedMotion, type MotionStyle } from "framer-motion";
 import { countryFlags } from "../../dataStore/datafile";
 import { useStaggeredRise } from "../../hooks/staggeredRise";
 
@@ -7,28 +7,49 @@ export default function PurpleCard() {
   const shouldReduceMotion = useReducedMotion();
   const noMotion = shouldReduceMotion;
   const bottomRowRef = useRef<HTMLDivElement>(null);
+  
   const { scrollYProgress: bottomProgress } = useScroll({
     target: bottomRowRef,
     offset: ["start 0.92", "start 0.5"],
   });
+  
   const card4 = useStaggeredRise(bottomProgress, [0.55, 1]);
   const [mounted, setMounted] = useState(false);
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const handleResize = () => setIsMobileOrTablet(window.innerWidth < 1024);
+    
+    // FIX: Debounce or safeguard layout metrics evaluation
+    let timeoutId: ReturnType<typeof setTimeout>;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setIsMobileOrTablet(window.innerWidth < 1024);
+      }, 100); // 100ms buffer prevents continuous paint cycles on size shifts
+    };
+    
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const useMobileStagger = isMobileOrTablet && mounted && !shouldReduceMotion;
 
+  // FIX: Type layout evaluation explicitly to prevent type compilation errors
+  const computedCardStyle = (useMobileStagger 
+    ? {} 
+    : noMotion 
+      ? {} 
+      : card4) as MotionStyle;
+
   return (
     <div ref={bottomRowRef} className="h-75">
       <motion.div
-        style={useMobileStagger ? {} : noMotion ? {} : card4}
+        style={computedCardStyle}
         initial={useMobileStagger ? { opacity: 0, y: 24 } : undefined}
         animate={useMobileStagger ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.65, delay: 0.25, ease: "easeOut" }}

@@ -2,6 +2,7 @@ import {
   motion,
   useTransform,
   type MotionValue,
+  type MotionStyle,
 } from "framer-motion";
 import {
   Currencies,
@@ -18,6 +19,7 @@ export function CurrencyRow({
 }) {
   const focus = 0.15 + index * 0.13;
 
+  // Optimized animation interpolations
   const scale = useTransform(
     progress,
     [focus - 0.14, focus, focus + 0.14],
@@ -41,9 +43,18 @@ export function CurrencyRow({
   );
   const ringOpacity = useTransform(scale, [0.98, 1.03], [0, 1]);
 
+  // FIX: Explicitly type your style object to satisfy Framer Motion v12 and optimize compiler tracks
+  const rowStyle: MotionStyle = { 
+    scale, 
+    scaleX, 
+    opacity, 
+    zIndex: zIndex as unknown as string | number, // Type casting to satisfy layout dictionary keys
+    boxShadow 
+  };
+
   return (
     <motion.div
-      style={{ scale, scaleX, opacity, zIndex, boxShadow }}
+      style={rowStyle}
       className="relative flex h-16 font-jakarta shrink-0 items-center justify-between rounded-2xl border border-black/5 bg-[#FBFAFD] px-4"
     >
       <motion.span

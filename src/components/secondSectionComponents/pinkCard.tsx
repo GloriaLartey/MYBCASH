@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type MotionStyle } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { currencies } from "../../dataStore/datafile";
 import { useCardReveal } from "../../hooks/sideWaysMovement";
@@ -14,18 +14,37 @@ export default function PinkCard() {
 
   useEffect(() => {
     setMounted(true);
-    const handleResize = () => setIsMobileOrTablet(window.innerWidth < 1024);
+    
+    // FIX: Debounce window size calculations to avoid locking up localhost threads
+    let timeoutId: ReturnType<typeof setTimeout>;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setIsMobileOrTablet(window.innerWidth < 1024);
+      }, 100);
+    };
+    
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const useMobileStagger = isMobileOrTablet && mounted && !shouldReduceMotion;
 
+  // FIX: Cast evaluated custom style configurations to satisfy compiler constraints cleanly
+  const computedCardStyle = (useMobileStagger 
+    ? {} 
+    : noMotion 
+      ? {} 
+      : card1) as MotionStyle;
+
   return (
     <motion.div
       ref={card1.ref}
-      style={useMobileStagger ? {} : noMotion ? {} : card1}
+      style={computedCardStyle}
       initial={useMobileStagger ? { opacity: 0, y: 24 } : undefined}
       animate={useMobileStagger ? { opacity: 1, y: 0 } : undefined}
       transition={{ duration: 0.65, delay: 0.16, ease: "easeOut" }}
@@ -51,7 +70,7 @@ export default function PinkCard() {
                   className="h-4 w-auto"
                 />
                 <img
-                  src="/angle-down.png"
+                  src="/angle-down.webp"
                   alt="Arrow"
                   className="mt-auto h-2 w-2.5 object-contain"
                 />

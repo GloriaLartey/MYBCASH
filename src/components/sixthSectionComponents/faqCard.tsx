@@ -28,6 +28,10 @@ export function FaqCard({
       style={{ y, opacity }}
       className="overflow-hidden font-jakarta rounded-2xl bg-[#303147]"
     >
+      {/* 
+        FIX: Button now only handles the interactive trigger header area.
+        This prevents browser engine layout thrashing inside button tags.
+      */}
       <button
         onClick={onToggle}
         className="flex w-full items-center gap-4 px-5 py-4 text-left sm:px-6"
@@ -36,28 +40,32 @@ export function FaqCard({
           {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
         </span>
 
-        <div className="flex-1">
-          <p className="text-base font-semibold text-white sm:text-lg">
-            {faq.question}
-          </p>
-
-          <AnimatePresence initial={false}>
-            {isOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden"
-              >
-                <p className="mt-1.5 text-xs leading-relaxed text-white">
-                  {faq.answer}
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        <p className="flex-1 text-base font-semibold text-white sm:text-lg">
+          {faq.question}
+        </p>
       </button>
+
+      {/* 
+        FIX: Moved content block outside the native button element wrapper.
+        Your exact animation height properties and speed durations remain preserved.
+      */}
+      <div className="px-5 sm:px-6">
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <p className="pb-4 text-xs leading-relaxed text-white">
+                {faq.answer}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </motion.div>
   );
 }

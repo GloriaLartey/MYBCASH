@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type MotionStyle } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useCardReveal } from "../../hooks/sideWaysMovement";
 
@@ -14,27 +14,36 @@ export default function GreenCards() {
   useEffect(() => {
     setMounted(true);
 
+    // FIX: Debounce the window resize calculations to completely stop localhost thread-locking
+    let timeoutId: ReturnType<typeof setTimeout>;
     const handleResize = () => {
-      setIsMobileOrTablet(window.innerWidth < 1024);
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setIsMobileOrTablet(window.innerWidth < 1024);
+      }, 100);
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const useMobileStagger = isMobileOrTablet && mounted && !shouldReduceMotion;
 
+  // FIX: Cast evaluated custom style configuration cleanly to resolve standard Framer Motion type errors
+  const computedCardStyle = (useMobileStagger
+    ? {}
+    : noMotion
+      ? {}
+      : { opacity: card0.opacity, x: card0.x }) as MotionStyle;
+
   return (
     <motion.div
       ref={card0.ref}
-      style={
-        useMobileStagger
-          ? {}
-          : noMotion
-            ? {}
-            : { opacity: card0.opacity, x: card0.x }
-      }
+      style={computedCardStyle}
       initial={useMobileStagger ? { opacity: 0, y: 24 } : undefined}
       animate={useMobileStagger ? { opacity: 1, y: 0 } : undefined}
       transition={{ duration: 0.65, delay: 0.1, ease: "easeOut" }}
@@ -85,7 +94,7 @@ export default function GreenCards() {
                 }}
                 className="text-lg">
                 <img
-                  src="/ss-img.jpg"
+                  src="/ss-img.webp"
                   alt="Real Image sakora woman"
                   className="h-10 w-auto object-cover"
                 />
@@ -115,7 +124,7 @@ export default function GreenCards() {
                   ease: "linear",
                 }}>
                 <img
-                  src="/ss-painted (2).png"
+                  src="/ss-painted.webp"
                   alt="painted Image red sun "
                   className="h-7 w-auto object-cover"
                 />
@@ -131,7 +140,7 @@ export default function GreenCards() {
                 }}
                 className="text-lg">
                 <img
-                  src="/ss-img (2).jpg"
+                  src="/ss-img (1).webp"
                   alt="Real Image hairy woman"
                   className="h-13 w-auto object-cover"
                 />

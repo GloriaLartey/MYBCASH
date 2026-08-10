@@ -59,7 +59,7 @@ export default function OrangeCard() {
           </svg>
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:flex-col">
-            {["/house-1.png", "/profile.png", "/house-2.png"].map((Icon, i) =>
+            {["/house-1.webp", "/profile.webp", "/house-2.webp"].map((Icon, i) =>
               i !== 1 ? (
                 <span
                   key={i}

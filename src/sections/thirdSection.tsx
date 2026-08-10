@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -7,6 +7,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import React from "react"; // Added to memoize structural components
 import {
   Features,
   Currencies,
@@ -17,9 +18,18 @@ import {
 } from "../dataStore/datafile";
 import { CurrencyRow } from "../components/thirdSectionComponents/currencyRow";
 
+// FIX: Cache filtered lists outside the component body so they don't re-run on scroll ticks
+const featuresWithDescription = Features.filter((feature) => feature.description);
+const featuresWithoutDescription = Features.filter((feature) => !feature.description);
+
+// OPTIMIZATION: Wrap your custom row import to prevent rogue sub-component cycles
+const MemoizedCurrencyRow = React.memo(CurrencyRow);
+
 export default function ThirdSection() {
   const shouldReduceMotion = useReducedMotion();
-  const [displayBalance, setDisplayBalance] = useState(0);
+  
+  // FIX: Replace state with a targeted text DOM reference to stop full-page re-renders
+  const balanceTextRef = useRef<HTMLParagraphElement>(null);
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -33,9 +43,20 @@ export default function ThirdSection() {
     [185450425, targetBalance],
   );
 
+  // FIX: Perform high-frequency style text updating directly on the element node 
   useMotionValueEvent(balanceRaw, "change", (v) => {
-    setDisplayBalance(Math.max(185450425, Math.round(v)));
+    if (balanceTextRef.current) {
+      const calculatedValue = Math.max(185450425, Math.round(v));
+      balanceTextRef.current.textContent = `$${calculatedValue.toLocaleString()}`;
+    }
   });
+
+  // Handle initial placeholder layout text insertion safely on load
+  useEffect(() => {
+    if (balanceTextRef.current) {
+      balanceTextRef.current.textContent = `$${(185450425).toLocaleString()}`;
+    }
+  }, []);
 
   const listMaxScroll = Currencies.length * itemHeight - visibleHeight;
   const listY = useTransform(scrollYProgress, [0.9, 0.85], [0, -listMaxScroll]);
@@ -61,28 +82,24 @@ export default function ThirdSection() {
             </h2>
 
             <div className="mt-3 flex w-full flex-col items-center gap-3 lg:items-start">
-              {Features.filter((feature) => feature.description).map(
-                (feature) => (
-                  <div key={feature.title}>
-                    <p className="text-sm sm:text-base text-white">
-                      {feature.title}
-                    </p>
-                    <p className="mx-auto mt-2 max-w-sm text-xs leading-relaxed text-white lg:mx-0">
-                      {feature.description}
-                    </p>
-                  </div>
-                ),
-              )}
+              {featuresWithDescription.map((feature) => (
+                <div key={feature.title}>
+                  <p className="text-sm sm:text-base text-white">
+                    {feature.title}
+                  </p>
+                  <p className="mx-auto mt-2 max-w-sm text-xs leading-relaxed text-white lg:mx-0">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
               <div className="flex w-full flex-wrap justify-center gap-x-6 gap-y-2 lg:w-auto lg:flex-col lg:items-start lg:justify-start lg:gap-3">
-                {Features.filter((feature) => !feature.description).map(
-                  (feature) => (
-                    <p
-                      key={feature.title}
-                      className="text-sm whitespace-nowrap text-white sm:text-base">
-                      {feature.title}
-                    </p>
-                  ),
-                )}
+                {featuresWithoutDescription.map((feature) => (
+                  <p
+                    key={feature.title}
+                    className="text-sm whitespace-nowrap text-white sm:text-base">
+                    {feature.title}
+                  </p>
+                ))}
               </div>
             </div>
 
@@ -98,7 +115,7 @@ export default function ThirdSection() {
           <div className="relative z-9 min-h-[450px] sm:min-h-[460px] lg:min-h-[400px] font-jakarta overflow-hidden rounded-[32px] sm:rounded-[40px] lg:rounded-[50px] bg-[#BB9FFC] lg:-ml-6">
             <div className="absolute left-1/2 top-20 sm:top-24 lg:top-34 w-[80%] sm:w-[70%] lg:w-[92%] max-w-[280px] sm:max-w-[300px] lg:max-w-[360px] -translate-x-1/2 aspect-[2031/4096]">
               <img
-                src="/ts-phone.png"
+                src="/ts-phone.webp"
                 alt="MYBCASH wallet showing currency balances"
                 className="absolute inset-0 z-0 h-full w-full object-contain"
               />
@@ -125,7 +142,7 @@ export default function ThirdSection() {
                     <div className="flex items-center gap-2">
                       <div className="h-7 w-7 sm:h-8 sm:w-8 shrink-0 overflow-hidden rounded-full border border-black/10">
                         <img
-                          src="/profile-img.jpg"
+                          src="/profile-img.webp"
                           alt="Reson Holder"
                           className="h-full w-full object-cover"
                         />
@@ -151,8 +168,9 @@ export default function ThirdSection() {
                     <p className="text-[9px] sm:text-[10px] text-black font-medium">
                       Your Balance
                     </p>
-                    <p className="text-lg sm:text-xl lg:text-2xl font-semibold tabular-nums text-black lg:sm:text-[26px]">
-                      ${displayBalance.toLocaleString()}
+                    {/* OPTIMIZATION: Assign ref for zero-cost updates on this exact element node */}
+                    <p ref={balanceTextRef} className="text-lg sm:text-xl lg:text-2xl font-semibold tabular-nums text-black lg:sm:text-[26px]">
+                      $185,450,425
                     </p>
                   </div>
                 </div>
@@ -167,7 +185,7 @@ export default function ThirdSection() {
                   style={shouldReduceMotion ? {} : { y: listY }}
                   className="flex flex-col gap-3 px-[3%] pb-2 pt-1">
                   {Currencies.map((currency, i) => (
-                    <CurrencyRow
+                    <MemoizedCurrencyRow
                       key={i}
                       currency={currency}
                       index={i}
