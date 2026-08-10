@@ -1,5 +1,9 @@
-import { motion, useTransform, type MotionValue, type MotionStyle } from "framer-motion";
-import React from "react";
+import {
+  motion,
+  useTransform,
+  type MotionValue,
+  type MotionStyle,
+} from "framer-motion";
 import { testimonials } from "../../dataStore/datafile";
 
 export function TestimonialCard({
@@ -11,7 +15,6 @@ export function TestimonialCard({
   index: number;
   progress: MotionValue<number>;
 }) {
-  
   const start = index * 0.13;
   const end = start + 0.24;
 
@@ -26,9 +29,10 @@ export function TestimonialCard({
       style={cardStyle}
       whileHover={{ scale: 1.04 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="rounded-4xl bg-[#303147] font-jakarta p-6 shadow-lg shadow-black/20"
-    >
-      <span className="font-serif text-8xl font-jakarta leading-none text-white/25">”</span>
+      className="rounded-4xl bg-[#303147] font-jakarta p-6 shadow-lg shadow-black/20">
+      <span className="font-serif text-8xl font-jakarta leading-none text-white/25">
+        ”
+      </span>
 
       <p className="-mt-10 text-sm leading-relaxed text-white">
         &ldquo;{testimonial.quote}&rdquo;
@@ -42,13 +46,17 @@ export function TestimonialCard({
             className="h-9 w-9 rounded-full object-cover"
           />
           <div>
-            <p className="text-sm font-semibold text-white">{testimonial.name}</p>
+            <p className="text-sm font-semibold text-white">
+              {testimonial.name}
+            </p>
             <p className="text-[11px] text-white/50">{testimonial.role}</p>
           </div>
         </div>
 
         <div className="flex items-center gap-1 rounded-full border-[1.5px] border-white/25 px-3 py-1.5">
-          <span className="text-xs font-semibold text-white">{testimonial.rating}</span>
+          <span className="text-xs font-semibold text-white">
+            {testimonial.rating}
+          </span>
           <span className=" h-auto w-3.5 fill-amber-400 text-amber-400">
             <img src="/star.webp" alt="star rating" />
           </span>
