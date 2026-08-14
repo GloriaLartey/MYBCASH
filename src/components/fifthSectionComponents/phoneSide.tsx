@@ -12,7 +12,7 @@ function PhoneSideComponent({ controls }: PhoneSideProps) {
       <motion.div
         initial={{ x: 280, opacity: 0 }}
         animate={controls}
-        className="relative lg:top-30 -right-20 top-5 w-[78%] max-w-[300px] sm:w-[68%] sm:max-w-[400px] lg:-right-0 lg:w-full lg:max-w-[790px]">
+        className="relative mx-auto top-5 w-[78%] max-w-[300px] sm:w-[68%] sm:max-w-[400px] lg:mx-0 lg:top-30 lg:-right-0 lg:w-full lg:max-w-[790px]">
         <img
           src="/slanted-phone.png"
           alt="Hand holding phone showing MYBCASH wallet"

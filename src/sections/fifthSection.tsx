@@ -57,7 +57,7 @@ export default function FifthSection() {
       ref={sectionRef}
       className="bg-transparent font-montserrat px-4 py-12 rounded-[] sm:px-6 lg:px-10">
       <div className="mx-auto max-w-[1130px]">
-        <div className="relative overflow-hidden rounded-[100px] bg-[#012933] px-6 pt-10 pb-0  sm:px-10 sm:pt-12 lg:pl-12 lg:pr-0 lg:pt-0">
+        <div className="relative overflow-hidden rounded-[100px] bg-[#012933] px-6 pt-10 pb-20  sm:px-10 sm:pt-12 lg:pl-12 lg:pr-0 lg:pt-0">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-10">
             <MemoizedTextSide />
             <PhoneSide controls={imageControls} />
