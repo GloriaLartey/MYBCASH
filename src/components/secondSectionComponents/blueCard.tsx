@@ -49,7 +49,7 @@ export default function BlueCard() {
         initial={useMobileStagger ? { opacity: 0, y: 24 } : undefined}
         animate={useMobileStagger ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.65, delay: 0.24, ease: "easeOut" }}
-        className="flex h-full w-full min-h-[200px] flex-col items-center justify-center rounded-[28px] bg-[#5A54FF] px-4 py-7 text-center sm:min-h-[200px] sm:px-5 sm:py-8 lg:min-h-[200px] lg:px-5 lg:py-7 lg:text-center">
+        className="flex h-full w-full min-h-[200px] flex-col items-center justify-center rounded-tl-3xl rounded-br-3xl bg-[#012933] border border-white/10 px-4 py-7 text-center sm:min-h-[200px] sm:px-5 sm:py-8 lg:min-h-[200px] lg:px-5 lg:py-7 lg:text-center">
         <h3 className="text-xl font-semibold text-white">
           Transaction Tracking
         </h3>

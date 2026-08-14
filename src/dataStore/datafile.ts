@@ -11,8 +11,12 @@ export const brandLogos = [
 
 export const avatarColors = ["#BB9FFC", "#EB67A0", "#40B825"];
 export const avatarImages = ["/avatar3.webp", "/avatar2.webp", "/avatar1.webp"];
-export const phoneAvatarImages = ["/hp-1.webp", "/hp-2.webp", "/hp-3.webp", "/hp-4.webp"];
-
+export const phoneAvatarImages = [
+  "/hp-1.webp",
+  "/hp-2.webp",
+  "/hp-3.webp",
+  "/hp-4.webp",
+];
 
 //-------------------------------------------Second section data---------------------------------------------
 export const currencies = [
@@ -43,7 +47,13 @@ export const Currencies = [
     amount: "$1,264",
     positive: true,
   },
-  { code: "EUR", name: "Euro", flag: "/flag-1.webp", amount: "$1,029", positive: true },
+  {
+    code: "EUR",
+    name: "Euro",
+    flag: "/flag-1.webp",
+    amount: "$1,029",
+    positive: true,
+  },
   {
     code: "INR",
     name: "India Rupee",
@@ -72,90 +82,63 @@ export const Currencies = [
     amount: "$1,264",
     positive: true,
   },
-  
 ];
 
 export const targetBalance = 785450425;
 export const itemHeight = 76; // px, including gap
 export const visibleHeight = 200; // px, visible window for the scrolling list
 
-
-export const statusBar = ["/data-bars.webp", "/wifi.webp", "battery.png"]
-
+export const statusBar = ["/data-bars.webp", "/wifi.webp", "battery.png"];
 
 //------------------------------Fourth section data------------------------------------
 
 export const testimonials = [
   {
-    name: "Lisa",
-    role: "Traveller",
-    rating: "4.9",
-    avatar: "/testimonial-img1.webp",
-    quote:
-      "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
-  },
-  {
-    name: "Jeremy Davidson",
-    role: "Expat",
-    rating: "4.8",
-    avatar: "/testimonial-img2.webp",
-    quote:
-      "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
-  },
-  {
-    name: "Daniel",
-    role: "Freelancer",
-    rating: "4.9",
-    avatar: "/testimonial-img3.webp",
-    quote:
-      "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
-  },
-  {
-    name: "Jenny",
-    role: "Online Seller",
+    name: "Jennifer Asamoah",
+    role: "Verified MYBCASH User",
     rating: "3.2",
     avatar: "/testimonial-img4.webp",
     quote:
-      "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
+      "I love how easy it is to manage my money in one place. From topping up my account to sending money and paying bills, everything feels straightforward and secure.",
   },
   {
-    name: "Sarah",
-    role: "Student",
-    rating: "4.8",
-    avatar: "/testimonial-img5.webp",
+    name: "Daniel Owusu",
+    role: "Verified MYBCASH User",
+    rating: "4.9",
+    avatar: "/testimonial-img3.webp",
     quote:
-      "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
+      "The ability to manage local and international currency accounts from one wallet is a game changer. MYBCASH gives me everything I need without making money management complicated.",
   },
   {
-    name: "Isabelle",
-    role: "Investor",
+    name: "Ama Mesnsah",
+    role: "Verified MYBCASH User",
     rating: "3.9",
     avatar: "/testimonial-img6.webp",
     quote:
-      "Lorem ipsum dolor sit amet consectetur. Hac turpis purus eget tellus amet egestas. Aliquam quam nisl convallis vivamus. Pellentesque neque posuere ullamcorper euismod sed pellentesque.",
+      "MYBCASH makes managing different currencies incredibly simple. I can keep my money in separate accounts, swap when I need to, and make payments without jumping between different apps.",
   },
 ];
 
 //------------------------------------------------------Fifth section data---------------------------------------------------------------
 export const FAQS = [
   {
-    question: "What is accordion in UI Design?",
+    question: "Can I manage multiple currencies with MYBCASH?",
     answer:
-      "An accordion is a vertically stacked list of headers that can click on to reveal more information about a business.",
+      "Yes. MYBCASH allows you to open and manage accounts in multiple currencies from one secure wallet. You can keep track of your balances and move money between your accounts whenever you need to.",
   },
   {
-    question: "Why is accordion important?",
+    question: "Can I swap currencies through MYBCASH?",
     answer:
-      "Accordions save vertical space by letting users reveal only the content they care about, keeping pages scannable instead of overwhelming.",
+      "You can convert money between supported currencies using live exchange rates. MYBCASH provides an instant quote before you confirm your swap, so you can see exactly what you're getting.",
   },
   {
-    question: "Why we should use accordion?",
+    question: "Can I get a virtual card with MYBCASH?",
     answer:
-      "They organize related information into digestible sections, reduce cognitive load, and give users control over how much detail they see at once.",
+      "Yes. MYBCASH provides a virtual card designed for online shopping, subscriptions, and international payments. You can request your virtual card directly from the app and manage it from your wallet.",
   },
   {
-    question: "Which advantages does accordion add in UI Design?",
+    question: "Can I use MYBCASH to pay bills and buy airtime?",
     answer:
-      "Cleaner layouts, faster scanning, better mobile usability, and a natural way to group FAQs, settings, or nested content without extra navigation.",
+      "You can conveniently buy mobile airtime and pay electricity bills directly from your MYBCASH wallet, without needing to switch to another service.",
   },
 ];

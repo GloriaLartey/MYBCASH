@@ -8,7 +8,6 @@ import OrangeCard from "../components/secondSectionComponents/orangeCard";
 import BlueCard from "../components/secondSectionComponents/blueCard";
 import PurpleCard from "../components/secondSectionComponents/purpleCard";
 
-// OPTIMIZATION: Memoize structural child components to stop local rendering overhead
 const MemoizedGreenCards = React.memo(GreenCards);
 const MemoizedPinkCard = React.memo(PinkCard);
 const MemoizedOrangeCard = React.memo(OrangeCard);
@@ -23,7 +22,7 @@ export default function SecondSection() {
   const bottomRowRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="bg-black px-4 py-17 font-jakarta sm:px-6 lg:px-10">
+    <section className="bg-[#031d1e]/40 px-4 py-17  font-montserrat sm:px-6 lg:px-10">
       <div className="mx-auto max-w-[1130px]">
         {/*Header*/}
         <motion.div

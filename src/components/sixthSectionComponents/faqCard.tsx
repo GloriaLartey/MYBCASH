@@ -16,7 +16,6 @@ export function FaqCard({
   isOpen: boolean;
   onToggle: () => void;
 }) {
-  
   const start = index * 0.18;
   const end = start + 0.3;
 
@@ -26,18 +25,17 @@ export function FaqCard({
   return (
     <motion.div
       style={{ y, opacity }}
-      className="overflow-hidden font-jakarta rounded-2xl bg-[#303147]"
-    >
-      {/* 
-        FIX: Button now only handles the interactive trigger header area.
-        This prevents browser engine layout thrashing inside button tags.
-      */}
+      className="overflow-hidden font-montserrat rounded-2xl bg-[#011B21]">
+    
       <button
         onClick={onToggle}
-        className="flex w-full items-center gap-4 px-5 py-4 text-left sm:px-6"
-      >
+        className="flex w-full items-center gap-4 px-5 py-4 text-left sm:px-6">
         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-black text-white">
-          {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+          {isOpen ? (
+            <Minus className="h-4 w-4" />
+          ) : (
+            <Plus className="h-4 w-4" />
+          )}
         </span>
 
         <p className="flex-1 text-base font-semibold text-white sm:text-lg">
@@ -57,8 +55,7 @@ export function FaqCard({
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
+              className="overflow-hidden">
               <p className="pb-4 text-xs leading-relaxed text-white">
                 {faq.answer}
               </p>

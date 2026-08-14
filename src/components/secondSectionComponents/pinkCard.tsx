@@ -14,7 +14,7 @@ export default function PinkCard() {
 
   useEffect(() => {
     setMounted(true);
-    
+
     // FIX: Debounce window size calculations to avoid locking up localhost threads
     let timeoutId: ReturnType<typeof setTimeout>;
     const handleResize = () => {
@@ -23,7 +23,7 @@ export default function PinkCard() {
         setIsMobileOrTablet(window.innerWidth < 1024);
       }, 100);
     };
-    
+
     handleResize();
     window.addEventListener("resize", handleResize, { passive: true });
     return () => {
@@ -35,11 +35,9 @@ export default function PinkCard() {
   const useMobileStagger = isMobileOrTablet && mounted && !shouldReduceMotion;
 
   // FIX: Cast evaluated custom style configurations to satisfy compiler constraints cleanly
-  const computedCardStyle = (useMobileStagger 
-    ? {} 
-    : noMotion 
-      ? {} 
-      : card1) as MotionStyle;
+  const computedCardStyle = (
+    useMobileStagger ? {} : noMotion ? {} : card1
+  ) as MotionStyle;
 
   return (
     <motion.div
@@ -48,7 +46,7 @@ export default function PinkCard() {
       initial={useMobileStagger ? { opacity: 0, y: 24 } : undefined}
       animate={useMobileStagger ? { opacity: 1, y: 0 } : undefined}
       transition={{ duration: 0.65, delay: 0.16, ease: "easeOut" }}
-      className="flex h-full w-full min-h-[200px] flex-col mt-auto items-center justify-center rounded-[28px] bg-[#FF54AA] px-4 py-6 text-center sm:min-h-[200px] sm:px-5 sm:py-5 lg:min-h-[200px] lg:items-center lg:justify-center lg:px-7 lg:py-8 lg:text-left">
+      className="flex h-full w-full min-h-[200px] flex-col mt-auto items-center justify-center rounded-tl-3xl rounded-br-3xl bg-[#012933] border border-white/10 px-4 py-6 text-center sm:min-h-[200px] sm:px-5 sm:py-5 lg:min-h-[200px] lg:items-center lg:justify-center lg:px-7 lg:py-8 lg:text-left">
       <h3 className="text-xl font-semibold text-white">
         Instant Currency Covert
       </h3>
@@ -56,7 +54,7 @@ export default function PinkCard() {
         Convert with fingertips instantly.
       </p>
 
-      <div className="mt-6 w-full max-w-[260px] rounded-[18px] bg-[#E52276] p-3 sm:max-w-none">
+      <div className="mt-6 w-full max-w-[260px] rounded-[18px] bg-[#011B21] p-3 sm:max-w-none">
         <p className="mb-2 text-[11px] font-medium text-white/80">Sell USD</p>
         <div className="flex flex-col gap-2">
           {currencies.map((c) => (

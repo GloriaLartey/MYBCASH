@@ -53,7 +53,7 @@ export default function PurpleCard() {
         initial={useMobileStagger ? { opacity: 0, y: 24 } : undefined}
         animate={useMobileStagger ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.65, delay: 0.25, ease: "easeOut" }}
-        className="flex h-full w-full min-h-[200px] flex-col items-center justify-center rounded-[28px] bg-[#B52AFF] px-4 py-7 text-center sm:min-h-[200px] sm:px-5 sm:py-8 lg:min-h-[200px] lg:items-center lg:justify-center lg:px-5 lg:py-7 lg:text-center">
+        className="flex h-full w-full min-h-[200px] flex-col items-center justify-center rounded-tl-3xl rounded-br-3xl bg-[#012933] border border-white/10 px-4 py-7 text-center sm:min-h-[200px] sm:px-5 sm:py-8 lg:min-h-[200px] lg:items-center lg:justify-center lg:px-5 lg:py-7 lg:text-center">
         <h3 className="text-xl font-semibold text-white">Worldwide Coverage</h3>
         <p className="mt-1 w-full text-xs leading-relaxed text-white/85 sm:w-70">
           MYBCASH is now available in almost every country. Access from

@@ -47,7 +47,7 @@ export default function GreenCards() {
       initial={useMobileStagger ? { opacity: 0, y: 24 } : undefined}
       animate={useMobileStagger ? { opacity: 1, y: 0 } : undefined}
       transition={{ duration: 0.65, delay: 0.1, ease: "easeOut" }}
-      className="relative h-auto w-full overflow-hidden rounded-[28px] bg-[#46CD90] px-4 py-5 sm:px-5 sm:py-7 md:col-span-2 lg:col-span-2 lg:min-h-[300px] lg:px-5 lg:py-5">
+      className="relative h-auto w-full overflow-hidden rounded-tl-3xl rounded-br-3xl bg-[#012933] border border-white/10 px-4 py-5 sm:px-5 sm:py-7 md:col-span-2 lg:col-span-2 lg:min-h-[300px] lg:px-5 lg:py-5">
       <div className="flex h-full flex-col items-center gap-4 text-center sm:gap-6 lg:flex-row lg:items-center lg:justify-between lg:text-left">
         <motion.div
           initial={useMobileStagger ? { opacity: 0, y: 20 } : undefined}

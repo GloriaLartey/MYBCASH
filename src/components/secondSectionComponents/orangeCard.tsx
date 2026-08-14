@@ -33,7 +33,7 @@ export default function OrangeCard() {
         initial={useMobileStagger ? { opacity: 0, y: 24 } : undefined}
         animate={useMobileStagger ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.65, delay: 0.2, ease: "easeOut" }}
-        className="flex h-full w-full mt-auto min-h-[200px] flex-col items-center justify-center rounded-[28px] bg-[#FF7E1B] px-4 py-5 text-center sm:min-h-[200px] sm:px-5 sm:py-8 lg:min-h-[200px] lg:items-center lg:justify-center lg:px-5 lg:py-5 lg:text-left">
+        className="flex h-full w-full mt-auto min-h-[200px] flex-col items-center justify-center bg-[#012933] border border-white/10 backdrop-blur-md rounded-tl-3xl rounded-br-3xl px-4 py-5 text-center sm:min-h-[200px] sm:px-5 sm:py-8 lg:min-h-[200px] lg:items-center lg:justify-center lg:px-5 lg:py-5 lg:text-left">
         <h3 className="text-xl font-semibold text-white">Multiple Accounts</h3>
         <p className=" text-xs text-white/85">
           Multiple Accounts to secure any situation
@@ -58,29 +58,43 @@ export default function OrangeCard() {
             />
           </svg>
 
+          <svg
+            className="block h-5 w-[144px] text-white sm:hidden"
+            viewBox="0 0 144 20"
+            fill="none"
+            preserveAspectRatio="none">
+            <path
+              d="M18 0 V20 M72 0 V20 M126 0 V20"
+              stroke="currentColor"
+              strokeWidth="1"
+              strokeDasharray="4 4"
+            />
+          </svg>
+
           <div className="flex flex-wrap items-center justify-center gap-3 sm:flex-col">
-            {["/house-1.webp", "/profile.webp", "/house-2.webp"].map((Icon, i) =>
-              i !== 1 ? (
-                <span
-                  key={i}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md">
-                  <img
-                    src={Icon}
-                    alt={`Icon ${i + 1}`}
-                    className="h-5 w-5 object-cover"
-                  />
-                </span>
-              ) : (
-                <span
-                  key={i}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md">
-                  <img
-                    src={Icon}
-                    alt={`Icon ${i + 1}`}
-                    className="h-full w-full"
-                  />
-                </span>
-              ),
+            {["/house-1.webp", "/profile.webp", "/house-2.webp"].map(
+              (Icon, i) =>
+                i !== 1 ? (
+                  <span
+                    key={i}
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md">
+                    <img
+                      src={Icon}
+                      alt={`Icon ${i + 1}`}
+                      className="h-5 w-5 object-cover"
+                    />
+                  </span>
+                ) : (
+                  <span
+                    key={i}
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md">
+                    <img
+                      src={Icon}
+                      alt={`Icon ${i + 1}`}
+                      className="h-full w-full"
+                    />
+                  </span>
+                ),
             )}
           </div>
         </div>

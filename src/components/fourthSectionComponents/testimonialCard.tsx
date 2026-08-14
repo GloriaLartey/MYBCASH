@@ -29,8 +29,8 @@ export function TestimonialCard({
       style={cardStyle}
       whileHover={{ scale: 1.04 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="rounded-4xl bg-[#303147] font-jakarta p-6 shadow-lg shadow-black/20">
-      <span className="font-serif text-8xl font-jakarta leading-none text-white/25">
+      className="rounded-4xl bg-[#012933] font-montserrat p-6 shadow-lg shadow-black/20">
+      <span className="font-serif text-8xl font-montserrat leading-none text-white/25">
         ”
       </span>
 
@@ -38,7 +38,7 @@ export function TestimonialCard({
         &ldquo;{testimonial.quote}&rdquo;
       </p>
 
-      <div className="mt-6 flex items-center font-jakarta justify-between">
+      <div className="mt-6 flex items-center font-montserrat justify-between">
         <div className="flex items-center gap-2.5">
           <img
             src={testimonial.avatar}

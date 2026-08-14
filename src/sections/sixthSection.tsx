@@ -1,5 +1,10 @@
 import { useRef, useState } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 import React from "react";
 import { FAQS } from "../dataStore/datafile";
 import { FaqCard } from "../components/sixthSectionComponents/faqCard";
@@ -25,14 +30,14 @@ export default function SixthSection() {
   const headerY = useTransform(headerProgress, [0, 1], [20, 0]);
 
   return (
-    <section className="bg-black px-4 py-10 font-jakarta sm:px-6 lg:px-10">
+    <section className="bg-[#012933] rounded-t-[300px] px-4 py-10 font-montserrat sm:px-6 lg:px-10">
       <div className="mx-auto max-w-[1000px]">
-
         <motion.h2
           ref={headerRef}
-          style={shouldReduceMotion ? {} : { opacity: headerOpacity, y: headerY }}
-          className="text-center text-3xl font-semibold text-white sm:text-4xl"
-        >
+          style={
+            shouldReduceMotion ? {} : { opacity: headerOpacity, y: headerY }
+          }
+          className="text-center text-3xl font-semibold text-white sm:text-4xl">
           Frequently Asked Questions!
         </motion.h2>
 
