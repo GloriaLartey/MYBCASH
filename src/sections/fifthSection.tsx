@@ -5,7 +5,7 @@ import {
   useMotionValueEvent,
   useReducedMotion,
 } from "framer-motion";
-import React from "react"; // Added to handle sub-tree performance isolation
+import React from "react";
 import PhoneSide from "../components/fifthSectionComponents/phoneSide";
 import TextSide from "../components/fifthSectionComponents/textSide";
 
