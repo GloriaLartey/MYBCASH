@@ -1,22 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-/**
- * The phone box is measured directly from the DOM (ref + effect below)
- * instead of guessed as static percentages of the outer container, so its
- * position/size is correct at any screen size automatically.
- *
- * SCREEN_IN_IMAGE describes where the phone's actual DISPLAY sits within the
- * full hand-phone.png artwork, as a % of that image (bezel/hand excluded).
- * This is a fixed property of the source image file, not of the viewport, so
- * it never needs to change across breakpoints — only if the artwork itself
- * (a different crop/zoom/pose of the hand+phone) is swapped out.
- *
- * Every callout anchor below is defined as a % *of the screen*, then
- * converted through SCREEN_IN_IMAGE -> full-image % -> container % via the
- * helpers below. That's what makes tooltips track "the screen of the phone"
- * specifically, no matter how the surrounding artwork is cropped or scaled.
- */
+
 const SCREEN_IN_IMAGE = { left: 23.6, top: 0.6, width: 39.3, height: 79.2 }; // % of hand-phone.png
 
 const DEFAULT_PHONE_BOX = { left: 32, top: 4, width: 36, height: 92 }; // fallback before first measurement
