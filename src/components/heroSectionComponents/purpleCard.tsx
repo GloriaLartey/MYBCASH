@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-
 const SCREEN_IN_IMAGE = { left: 23.6, top: 0.6, width: 39.3, height: 79.2 }; // % of hand-phone.png
 
 const DEFAULT_PHONE_BOX = { left: 32, top: 4, width: 36, height: 92 }; // fallback before first measurement
@@ -23,7 +22,7 @@ const CALLOUTS: Callout[] = [
     id: "support",
     text: "24/7 customer support",
     side: "left",
-    anchor: { sx: 91.3, sy: 23.2 },
+    anchor: { sx: 70, sy: 23.2 },
     label: { x: 40, y: 10 },
   },
   {
@@ -37,8 +36,8 @@ const CALLOUTS: Callout[] = [
     id: "topup",
     text: "Top up your accounts with ease",
     side: "left",
-    anchor: { sx: 50, sy: 66.3 },
-    label: { x: 40, y: 60 },
+    anchor: { sx: 20, sy: 42 },
+    label: { x: 20, y: 60 },
   },
   {
     id: "account",
@@ -58,14 +57,14 @@ const CALLOUTS: Callout[] = [
     id: "bills",
     text: "Pay your bills without the hassle",
     side: "right",
-    anchor: { sx: 92, sy: 68.7 },
+    anchor: { sx: 70, sy: 45 },
     label: { x: 70, y: 68 },
   },
   {
     id: "card",
     text: "Use a virtual card",
     side: "right",
-    anchor: { sx: 90, sy: 92 },
+    anchor: { sx: 61, sy: 70 },
     label: { x: 73, y: 88 },
   },
 ];
@@ -203,7 +202,8 @@ export default function PurpleCard() {
           {CALLOUTS.filter((c) => c.id === active.id).map((c) => {
             const p = toContainerPct(c.anchor.sx, c.anchor.sy);
             const overlap = 1.6;
-            const lineEndX = c.side === "left" ? c.label.x - overlap : c.label.x + overlap;
+            const lineEndX =
+              c.side === "left" ? c.label.x - overlap : c.label.x + overlap;
             return (
               <motion.g key={c.id}>
                 <motion.line

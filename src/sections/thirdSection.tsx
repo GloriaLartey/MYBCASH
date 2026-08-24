@@ -1,15 +1,6 @@
 import { useRef, useEffect } from "react";
-// import {
-//   // motion,
-//   useScroll,
-//   useTransform,
-//   useMotionValueEvent,
-//   // useReducedMotion,
-// } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-// import React from "react";
 import {Features} from "../dataStore/datafile";
-// import { CurrencyRow } from "../components/thirdSectionComponents/currencyRow";
 
 const featuresWithDescription = Features.filter(
   (feature) => feature.description,
@@ -18,31 +9,11 @@ const featuresWithoutDescription = Features.filter(
   (feature) => !feature.description,
 );
 
-// const MemoizedCurrencyRow = React.memo(CurrencyRow);
-
 export default function ThirdSection() {
-  // const shouldReduceMotion = useReducedMotion();
 
   const balanceTextRef = useRef<HTMLParagraphElement>(null);
 
   const sectionRef = useRef<HTMLDivElement>(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: sectionRef,
-  //   offset: ["start 0.03", "end 0"],
-  // });
-
-  // const balanceRaw = useTransform(
-  //   scrollYProgress,
-  //   [0.05, 0.65],
-  //   [185450425, targetBalance],
-  // );
-
-  // useMotionValueEvent(balanceRaw, "change", (v) => {
-  //   if (balanceTextRef.current) {
-  //     const calculatedValue = Math.max(185450425, Math.round(v));
-  //     balanceTextRef.current.textContent = `$${calculatedValue.toLocaleString()}`;
-  //   }
-  // });
 
   useEffect(() => {
     if (balanceTextRef.current) {
