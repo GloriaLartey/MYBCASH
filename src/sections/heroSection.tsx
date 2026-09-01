@@ -2,6 +2,7 @@ import { useEffect } from "react";
 // import { ArrowUpRight } from "lucide-react";
 import React from "react";
 import { useNavStore } from "../store/useNavStore";
+import { navSectionMap, type NavLink } from "../dataStore/datafile";
 import { navLinks } from "../dataStore/datafile";
 import PurpleCard from "../components/heroSectionComponents/purpleCard";
 import DarkCard from "../components/heroSectionComponents/darkCard";
@@ -22,6 +23,15 @@ export default function HeroSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [setIsScrolled]);
 
+  const handleNavClick = (link: NavLink) => {
+    setActiveLink(link); // optimistic — instant highlight feedback
+    const id = navSectionMap[link];
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div className="relative z-10 bg-[#031d1e]/40 overflow-hidden font-montserrat">
       <nav
@@ -31,7 +41,18 @@ export default function HeroSection() {
             : "bg-[#011B22] py-5"
         }`}
       >
-        <div className="flex items-center gap-2">
+        <div
+          onClick={() => handleNavClick("Home")}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              handleNavClick("Home");
+            }
+          }}
+          className="flex cursor-pointer items-center gap-2"
+        >
           <span className="relative flex h-9 w-9.5 items-center justify-center rounded-full bg-white">
             <span className="absolute top-[13px] left-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#282525]">
               <span className="absolute top-[12.5px] left-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FF7E1B]" />
@@ -46,7 +67,7 @@ export default function HeroSection() {
           {navLinks.map((link) => (
             <li key={link}>
               <button
-                onClick={() => setActiveLink(link)}
+                onClick={() => handleNavClick(link)}
                 className={`relative text-sm font-medium transition-colors duration-300 ${
                   activeLink === link
                     ? "bg-gradient-to-r from-[#F0D6B4] to-[#EB6CA1] bg-clip-text text-transparent"
@@ -58,9 +79,12 @@ export default function HeroSection() {
             </li>
           ))}
         </ul>
-          <div className=" max-w-sm gap-1"><DownloadButtons iosUrl="YOUR_APP_STORE_URL" androidUrl="YOUR_GOOGLE_PLAY_URL"/></div>
-        
-        
+        <div className=" max-w-sm gap-1">
+          <DownloadButtons
+            iosUrl="YOUR_APP_STORE_URL"
+            androidUrl="YOUR_GOOGLE_PLAY_URL"
+          />
+        </div>
       </nav>
 
       <section className="relative bg-[#012933] rounded-b-[300px] px-3 pb-10 pt-24 sm:px-6 sm:pb-12 sm:pt-28 lg:px-10 lg:pb-14 lg:pt-32">

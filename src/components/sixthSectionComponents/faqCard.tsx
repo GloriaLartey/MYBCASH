@@ -43,10 +43,6 @@ export function FaqCard({
         </p>
       </button>
 
-      {/* 
-        FIX: Moved content block outside the native button element wrapper.
-        Your exact animation height properties and speed durations remain preserved.
-      */}
       <div className="px-5 sm:px-6">
         <AnimatePresence initial={false}>
           {isOpen && (

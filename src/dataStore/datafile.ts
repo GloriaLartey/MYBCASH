@@ -1,13 +1,18 @@
-//Hero section data
-export const navLinks = ["Home", "Features", "Solutions", "FAQs"] as const;
+// import { title } from "framer-motion/client";
 
-export const brandLogos = [
-  { name: "FOURSQUARE", stacked: true, className: " font-foursquare" },
-  { name: "tumblr", className: "font-tumblr" },
-  { name: "tumblr", className: "font-tumblr" },
-  { name: "facebook", className: "font-facebook" },
-  { name: "BeReal.", className: "font-bereal" },
-];
+//Hero section data
+export const navLinks = ["Home", "About Us", "Solutions", "Testimonials", "FAQs"] as const;
+export type NavLink = (typeof navLinks)[number];
+
+// Maps each nav label to the id of the section it should scroll to.
+// Adjust the string values if my section guesses above are wrong.
+export const navSectionMap: Record<NavLink, string> = {
+  Home: "home",
+  'About Us': "about",
+  Solutions: "solutions",
+  Testimonials: "testimonials",
+  FAQs: "faqs",
+};
 
 export const avatarColors = ["#BB9FFC", "#EB67A0", "#40B825"];
 export const avatarImages = ["/avatar3.webp", "/avatar2.webp", "/avatar1.webp"];
@@ -34,9 +39,9 @@ export const Features = [
     description:
       "Get accurate and up-to-date exchange rates everytime you make a transaction.",
   },
-  { title: "Secure Global Transactions" },
-  { title: "Lowest Transfer Fees" },
-  { title: "24/7 Customer Support" },
+  { title: "● Secure Global Transactions" },
+  { title: "● Lowest Transfer Fees" },
+  { title: "● 24/7 Customer Support" },
 ];
 
 export const Currencies = [
@@ -140,5 +145,21 @@ export const FAQS = [
     question: "Can I use MYBCASH to pay bills and buy airtime?",
     answer:
       "You can conveniently buy mobile airtime and pay electricity bills directly from your MYBCASH wallet, without needing to switch to another service.",
+  },
+];
+
+//--------------------Footer data--------------------------
+export const footerData = [
+  {
+    title: "Services",
+    data: ["Home", "Solutions"],
+  },
+  {
+    title: "Company",
+    data: ["About Us", "Contact Us"],
+  },
+  {
+    title: "Helpful Links",
+    data: ["FAQs"],
   },
 ];

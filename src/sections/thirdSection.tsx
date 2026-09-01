@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
-import { ArrowUpRight } from "lucide-react";
-import {Features} from "../dataStore/datafile";
+// import { ArrowUpRight } from "lucide-react";
+import { Features } from "../dataStore/datafile";
+import DownloadButtons from "../components/heroSectionComponents/downloadOptions";
 
 const featuresWithDescription = Features.filter(
   (feature) => feature.description,
@@ -10,7 +11,6 @@ const featuresWithoutDescription = Features.filter(
 );
 
 export default function ThirdSection() {
-
   const balanceTextRef = useRef<HTMLParagraphElement>(null);
 
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ export default function ThirdSection() {
             <span
               style={{
                 background:
-                  "linear-gradient(#303147, #303147) padding-box, linear-gradient(to right, #F1D7B5, #EB67A0) border-box",
+                  "linear-gradient(black, black) padding-box, linear-gradient(to right, #F1D7B5, #EB67A0) border-box",
               }}
               className="inline-flex w-fit items-center uppercase rounded-full border-1 border-transparent px-2 py-0.5 text-[9px] tracking-wide text-white"
             >
@@ -58,7 +58,7 @@ export default function ThirdSection() {
                 {featuresWithoutDescription.map((feature) => (
                   <p
                     key={feature.title}
-                    className="text-xs whitespace-nowrap text-white sm:text-sm"
+                    className="text-xs whitespace-nowrap text-orange-300 sm:text-sm"
                   >
                     {feature.title}
                   </p>
@@ -66,12 +66,7 @@ export default function ThirdSection() {
               </div>
             </div>
 
-            <button className="group mt-5 sm:mt-7 flex items-center gap-3 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 py-1 pl-4 pr-1 text-xs font-semibold text-white shadow-lg shadow-orange-900/20 transition-transform duration-300 hover:scale-[1.04]">
-              Download Now
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white transition-transform duration-300 group-hover:rotate-45">
-                <ArrowUpRight color="black" className="h-4 w-4" />
-              </span>
-            </button>
+          <div className=" max-w-sm py-5 gap-1"><DownloadButtons iosUrl="YOUR_APP_STORE_URL" androidUrl="YOUR_GOOGLE_PLAY_URL"/></div>
           </div>
 
           {/* phone card */}

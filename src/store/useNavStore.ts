@@ -1,6 +1,5 @@
 import { create } from "zustand";
-
-type NavLink = "Home" | "Features" | "Solutions" | "FAQs";
+import type { NavLink } from "../dataStore/datafile";
 
 interface NavState {
   activeLink: NavLink;

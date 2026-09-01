@@ -19,18 +19,18 @@ interface Callout {
 
 const CALLOUTS: Callout[] = [
   {
-    id: "support",
-    text: "24/7 customer support",
+    id: "Crypto",
+    text: "Increase your crypto portfolio",
     side: "left",
-    anchor: { sx: 70, sy: 23.2 },
-    label: { x: 40, y: 10 },
+    anchor: { sx: 44, sy: 69 },
+    label: { x: 40, y: 90 },
   },
   {
-    id: "secure",
-    text: "Secure and reliable services",
+    id: "send",
+    text: "Send money to other users",
     side: "left",
-    anchor: { sx: 57.7, sy: 40.7 },
-    label: { x: 35, y: 34 },
+    anchor: { sx: 53, sy: 42 },
+    label: { x: 20, y: 34 },
   },
   {
     id: "topup",
@@ -43,29 +43,29 @@ const CALLOUTS: Callout[] = [
     id: "account",
     text: "Create local account",
     side: "right",
-    anchor: { sx: 56.2, sy: 56.8 },
-    label: { x: 80, y: 10 },
+    anchor: { sx: 56.2, sy: 35 },
+    label: { x: 70, y: 10 },
   },
   {
     id: "swap",
     text: "Swap currencies at live rates",
     side: "right",
-    anchor: { sx: 44.8, sy: 66.3 },
-    label: { x: 73, y: 50 },
+    anchor: { sx: 35, sy: 42 },
+    label: { x: 75, y: 50 },
   },
   {
     id: "bills",
     text: "Pay your bills without the hassle",
     side: "right",
-    anchor: { sx: 70, sy: 45 },
+    anchor: { sx: 70, sy: 42 },
     label: { x: 70, y: 68 },
   },
   {
     id: "card",
     text: "Use a virtual card",
     side: "right",
-    anchor: { sx: 61, sy: 70 },
-    label: { x: 73, y: 88 },
+    anchor: { sx: 59, sy: 69 },
+    label: { x: 70, y: 90 },
   },
 ];
 
