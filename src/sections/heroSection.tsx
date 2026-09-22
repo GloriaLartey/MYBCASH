@@ -80,7 +80,7 @@ export default function HeroSection() {
           ))}
         </ul>
         <a
-          href="https://www.apple.com/app-store/"
+          href="https://www"
           target="_blank"
           rel="noopener noreferrer"
           className="max-w-sm rounded-tl-[10px] rounded-br-[10px] border border-white/50 bg-transparent p-1 transition-transform duration-200 hover:scale-[1.02]"
