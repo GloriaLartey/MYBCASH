@@ -89,22 +89,7 @@ export default function AboutSection() {
               ))}
             </div>
 
-            <div className="mt-8 rounded-[24px] border border-white/10 bg-[#012933] p-4">
-              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-white">
-                {/* <ShieldCheck className="h-4 w-4 text-[#F1D7B5]" /> */}
-                Built for secure everyday transfers
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {securityPoints.map((point) => (
-                  <span
-                    key={point}
-                    className="rounded-full border border-white/10 bg-white/3 px-3 py-1 text-[11px] text-white/75"
-                  >
-                    {point}
-                  </span>
-                ))}
-              </div>
-            </div>
+            
 
             <div className="mx-auto mt-8 flex max-w-md flex-col gap-3 lg:mx-0">
               {contactDetails.map(({ icon: Icon, label, href }) => {
