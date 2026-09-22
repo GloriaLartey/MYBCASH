@@ -74,18 +74,20 @@ export default function HeroSection() {
                     : "text-white/80 hover:text-white"
                 }`}
               >
-                {link.toUpperCase()}
+                {link/** .toUpperCase() */}
               </button>
             </li>
           ))}
         </ul>
-        <div className=" max-w-sm gap-1">
+        <div className=" max-w-sm bg-transparent rounded-tl-[10px] rounded-br-[10px] border-1 border-white p-1">
           {/* <DownloadButtons
             iosUrl="YOUR_APP_STORE_URL"
             androidUrl="YOUR_GOOGLE_PLAY_URL"
           /> */}
-
-          <button className="p-2 text-sm bg-transparent text-white border border-white/50 rounded-tl-[10px] rounded-br-[10px]">Get the app</button>
+          <div>
+            <button className="p-2 text-xs bg-white font-medium border border-white/50 rounded-tl-[10px] rounded-br-[10px]">Get the app</button>
+          </div>
+          
         </div>
       </nav>
 
