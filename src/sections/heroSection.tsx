@@ -6,7 +6,7 @@ import { navSectionMap, type NavLink } from "../dataStore/datafile";
 import { navLinks } from "../dataStore/datafile";
 import PurpleCard from "../components/heroSectionComponents/purpleCard";
 import DarkCard from "../components/heroSectionComponents/darkCard";
-import DownloadButtons from "../components/heroSectionComponents/downloadOptions";
+// import DownloadButtons from "../components/heroSectionComponents/downloadOptions";
 
 const MemoizedDarkCard = React.memo(DarkCard);
 const MemoizedPurpleCard = React.memo(PurpleCard);
@@ -80,10 +80,12 @@ export default function HeroSection() {
           ))}
         </ul>
         <div className=" max-w-sm gap-1">
-          <DownloadButtons
+          {/* <DownloadButtons
             iosUrl="YOUR_APP_STORE_URL"
             androidUrl="YOUR_GOOGLE_PLAY_URL"
-          />
+          /> */}
+
+          <button className="p-2 text-sm bg-transparent text-white border border-white/50 rounded-tl-[10px] rounded-br-[10px]">Get the app</button>
         </div>
       </nav>
 
