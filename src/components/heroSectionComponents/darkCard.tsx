@@ -26,19 +26,19 @@ export default function DarkCard() {
         </span>
 
         <h1 className="mt-4 max-w-[22rem] text-xl font-semibold leading-[1.15] text-white sm:mt-5 sm:max-w-sm sm:text-2xl lg:max-w-md lg:text-3xl">
-          Empower Your Financial Future with{" "}
-          <span className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-2xl font-black text-transparent sm:text-3xl lg:text-4xl">
-            MYBCASH
-          </span>
+          Move money across borders without the friction.
         </h1>
+
         <p className="mt-3 max-w-md text-[11px] leading-relaxed text-white/70 sm:mt-4 sm:text-xs">
-          - One wallet, multiple currencies, total control all in one place -
+          <span className="text-[#F1D7B5]">MYBCASH</span> brings together wallet balances, live exchange rates, bill
+          payments, and instant transfers in one secure app built for everyday
+          life.
         </p>
 
         <div className="mt-6 flex w-auto flex-col items-center gap-4 sm:mt-8 lg:w-auto lg:flex-row lg:items-center lg:gap-3">
           <DownloadButtons
-            iosUrl="YOUR_APP_STORE_URL"
-            androidUrl="YOUR_GOOGLE_PLAY_URL"
+            iosUrl="https://www.apple.com/app-store/"
+            androidUrl="https://play.google.com/store/apps"
           />
           <PulsingChevrons />
         </div>

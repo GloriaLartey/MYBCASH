@@ -37,8 +37,9 @@ export default function SixthSection() {
           style={
             shouldReduceMotion ? {} : { opacity: headerOpacity, y: headerY }
           }
-          className="text-center text-3xl font-semibold text-white sm:text-4xl">
-          Frequently Asked Questions!
+          className="text-center text-3xl font-semibold text-white sm:text-4xl"
+        >
+          Frequently asked questions about moving money with confidence
         </motion.h2>
 
         <div ref={listRef} className="mt-10 flex flex-col gap-4">

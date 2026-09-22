@@ -74,21 +74,21 @@ export default function HeroSection() {
                     : "text-white/80 hover:text-white"
                 }`}
               >
-                {link/** .toUpperCase() */}
+                {link /** .toUpperCase() */}
               </button>
             </li>
           ))}
         </ul>
-        <div className=" max-w-sm bg-transparent rounded-tl-[10px] rounded-br-[10px] border-1 border-white p-1">
-          {/* <DownloadButtons
-            iosUrl="YOUR_APP_STORE_URL"
-            androidUrl="YOUR_GOOGLE_PLAY_URL"
-          /> */}
-          <div>
-            <button className="p-2 text-xs bg-white font-medium border border-white/50 rounded-tl-[10px] rounded-br-[10px]">Get the app</button>
-          </div>
-          
-        </div>
+        <a
+          href="https://www.apple.com/app-store/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="max-w-sm rounded-tl-[10px] rounded-br-[10px] border border-white/50 bg-transparent p-1 transition-transform duration-200 hover:scale-[1.02]"
+        >
+          <span className="block bg-white px-3 py-2 text-xs font-medium text-[#011B22] rounded-tl-[10px] rounded-br-[10px]">
+            Get the app
+          </span>
+        </a>
       </nav>
 
       <section className="relative bg-[#012933] rounded-b-[300px] px-3 pb-10 pt-24 sm:px-6 sm:pb-12 sm:pt-28 lg:px-10 lg:pb-14 lg:pt-32">

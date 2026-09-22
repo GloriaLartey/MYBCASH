@@ -1,14 +1,21 @@
 // import { title } from "framer-motion/client";
 
 //Hero section data
-export const navLinks = ["Home", "About Us", "Solutions", "Testimonials", "FAQs"] as const;
+export const navLinks = [
+  "Home",
+  "About Us",
+  "How it works",
+  "Solutions",
+  "Testimonials",
+  "FAQs",
+] as const;
 export type NavLink = (typeof navLinks)[number];
 
 // Maps each nav label to the id of the section it should scroll to.
-// Adjust the string values if my section guesses above are wrong.
 export const navSectionMap: Record<NavLink, string> = {
   Home: "home",
-  'About Us': "about",
+  "About Us": "about",
+  "How it works": "how-it-works",
   Solutions: "solutions",
   Testimonials: "testimonials",
   FAQs: "faqs",
@@ -21,6 +28,47 @@ export const phoneAvatarImages = [
   "/hp-2.webp",
   "/hp-3.webp",
   "/hp-4.webp",
+];
+
+export const trustStats = [
+  { value: "500K+", label: "Active users" },
+  { value: "40+", label: "Countries served" },
+  { value: "24/7", label: "Support" },
+  { value: "99.9%", label: "Uptime" },
+];
+
+export const howItWorks = [
+  {
+    step: "01",
+    title: "Create your wallet",
+    description:
+      "Set up your secure wallet in minutes and verify your profile in a few steps.",
+  },
+  {
+    step: "02",
+    title: "Fund your account",
+    description:
+      "Top up with local or international transfers, cards, or supported payment methods.",
+  },
+  {
+    step: "03",
+    title: "Pay, send, or swap",
+    description:
+      "Move money, pay bills, buy airtime, and exchange currencies at live rates.",
+  },
+  {
+    step: "04",
+    title: "Track everything in real time",
+    description:
+      "View balances, payment history, FX activity, and spending from one dashboard.",
+  },
+];
+
+export const securityPoints = [
+  "Bank-grade encryption",
+  "Instant transaction alerts",
+  "Secure login and verification",
+  "Real-time support",
 ];
 
 //-------------------------------------------Second section data---------------------------------------------
@@ -37,7 +85,7 @@ export const Features = [
   {
     title: "Real-Time Exchange Rates",
     description:
-      "Get accurate and up-to-date exchange rates everytime you make a transaction.",
+      "See the market price before you send, so you know exactly what arrives on the other side.",
   },
   { title: "● Secure Global Transactions" },
   { title: "● Lowest Transfer Fees" },
@@ -127,14 +175,24 @@ export const testimonials = [
 //------------------------------------------------------Fifth section data---------------------------------------------------------------
 export const FAQS = [
   {
-    question: "Can I manage multiple currencies with MYBCASH?",
+    question: "How safe is my money in MYBCASH?",
     answer:
-      "Yes. MYBCASH allows you to open and manage accounts in multiple currencies from one secure wallet. You can keep track of your balances and move money between your accounts whenever you need to.",
+      "MYBCASH uses secure wallet technology, encrypted transactions, and verification checks to help keep your money and account activity protected at every step.",
   },
   {
-    question: "Can I swap currencies through MYBCASH?",
+    question: "Can I manage multiple currencies with MYBCASH?",
     answer:
-      "You can convert money between supported currencies using live exchange rates. MYBCASH provides an instant quote before you confirm your swap, so you can see exactly what you're getting.",
+      "Yes. MYBCASH lets you hold and manage balances in multiple currencies from one wallet, making international payments and transfers simpler.",
+  },
+  {
+    question: "Are there hidden fees when I send or swap money?",
+    answer:
+      "MYBCASH is built to be transparent. You can see exchange rates and fees before confirming a transfer or swap so there are no surprises.",
+  },
+  {
+    question: "How long do transfers take?",
+    answer:
+      "Transfer times vary based on payment type and destination, but many transactions are processed quickly, with updates available in real time through the app.",
   },
   {
     question: "Can I get a virtual card with MYBCASH?",
@@ -144,7 +202,7 @@ export const FAQS = [
   {
     question: "Can I use MYBCASH to pay bills and buy airtime?",
     answer:
-      "You can conveniently buy mobile airtime and pay electricity bills directly from your MYBCASH wallet, without needing to switch to another service.",
+      "You can conveniently buy mobile airtime and pay electricity bills directly from your MYBCASH wallet without switching to another service.",
   },
 ];
 
@@ -156,7 +214,7 @@ export const footerData = [
   },
   {
     title: "Company",
-    data: ["About Us", "Contact Us"],
+    data: ["About Us", "Support"],
   },
   {
     title: "Helpful Links",

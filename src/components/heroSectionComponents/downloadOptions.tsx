@@ -14,7 +14,7 @@ export default function DownloadButtons({
         href={iosUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex h-11 flex-1 items-center gap-2 rounded-[7px] border border-black bg-white px-2.5 py-1.5 text-black transition-transform duration-200 hover:scale-105 sm:h-12 sm:px-3 sm:py-2 lg:h-14"
+        className="flex h-11 flex-1 items-center gap-2 rounded-[7px] border border-black bg-white px-2.5 py-1.5 text-black transition-transform duration-200 hover:scale-[1.02] sm:h-12 sm:px-3 sm:py-2 lg:h-14"
       >
         <img
           src="/apple.png"
@@ -38,7 +38,7 @@ export default function DownloadButtons({
         href={androidUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex h-11 flex items-center gap-2 rounded-[7px] border bg-black px-2.5 py-1.5 text-white transition-transform duration-200 hover:scale-105 sm:h-12 sm:px-3 sm:py-2 lg:h-14"
+        className="flex h-11 flex-1 items-center gap-2 rounded-[7px] border bg-black px-2.5 py-1.5 text-white transition-transform duration-200 hover:scale-[1.02] sm:h-12 sm:px-3 sm:py-2 lg:h-14"
       >
         <img
           src="/googleplay-img.png"

@@ -5,6 +5,7 @@ import FourthSection from "../sections/fourthSection";
 import FifthSection from "../sections/fifthSection";
 import SixthSection from "../sections/sixthSection";
 import AboutSection from "../sections/aboutSection";
+import HowItWorksSection from "../sections/howItWorksSection";
 import Footer from "../sections/footer";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 
@@ -20,12 +21,14 @@ export default function HomePage() {
         <div id="about" className="scroll-mt-24">
           <AboutSection />
         </div>
+        <div id="how-it-works" className="scroll-mt-24">
+          <HowItWorksSection />
+        </div>
         <div id="solutions" className="scroll-mt-24">
           <SecondSection />
           <ThirdSection />
         </div>
-        
-        
+
         <div id="testimonials" className="scroll-mt-24">
           <FourthSection />
           <FifthSection />

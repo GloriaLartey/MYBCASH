@@ -1,8 +1,20 @@
 import { useState } from "react";
-import { Send, Mail, Phone, MapPin} from "lucide-react";
+import {
+  Send,
+  Mail,
+  Phone,
+  MapPin,
+  ShieldCheck,
+  ArrowRight,
+} from "lucide-react";
+import { securityPoints } from "../dataStore/datafile";
 
 const contactDetails = [
-  { icon: Mail, label: "helpcenter@mybcash.com", href: "mailto:helpcenter@mybcash.com" },
+  {
+    icon: Mail,
+    label: "helpcenter@mybcash.com",
+    href: "mailto:helpcenter@mybcash.com",
+  },
   { icon: Phone, label: "+233 20 000 0000", href: "tel:+2332000000" },
   { icon: MapPin, label: "Accra, Ghana" },
 ];
@@ -22,7 +34,6 @@ export default function AboutSection() {
     e.preventDefault();
     setStatus("submitting");
 
-    // TODO: wire this up to your actual contact endpoint / email service.
     setTimeout(() => {
       setStatus("sent");
       setForm({ name: "", email: "", message: "" });
@@ -36,31 +47,26 @@ export default function AboutSection() {
     >
       <div className="mx-auto max-w-[1130px]">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* text side */}
           <div className="text-center lg:text-left">
             <span
               style={{
                 background:
                   "linear-gradient(#011B22, #011B22) padding-box, linear-gradient(to right, #F1D7B5, #EB67A0) border-box",
               }}
-              className="inline-flex w-fit items-center uppercase rounded-full border-1 border-transparent px-3 py-1 text-[10px] tracking-wide text-white"
+              className="inline-flex w-fit items-center uppercase rounded-full border border-transparent px-3 py-1 text-[10px] tracking-wide text-white"
             >
               About Us
             </span>
 
             <h2 className="mt-4 text-2xl font-semibold text-white sm:text-3xl lg:text-4xl">
-              What is{" "}
-              <span className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                MYBCASH
-              </span>
-              ?
+              One wallet built for people who move money every day.
             </h2>
 
             <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-white/75 sm:text-base lg:mx-0">
-              MYBCASH is a digital wallet built for people who move money
-              across borders every day. Top up your balance, swap currencies
-              at live rates, pay bills, and send funds home — all from one
-              secure app, backed by 24/7 support whenever you need it.
+              MYBCASH helps you save, send, pay, and swap currencies from one
+              secure place. Whether you are supporting family abroad, topping up
+              your wallet, or managing international payments, everything is
+              designed to feel simple, fast, and transparent.
             </p>
 
             <div className="mx-auto mt-8 grid max-w-md grid-cols-2 gap-4 lg:mx-0">
@@ -84,7 +90,23 @@ export default function AboutSection() {
               ))}
             </div>
 
-            {/* contact details */}
+            <div className="mt-8 rounded-[24px] border border-white/10 bg-[#012933] p-4">
+              <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-white">
+                <ShieldCheck className="h-4 w-4 text-[#F1D7B5]" />
+                Built for secure everyday transfers
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {securityPoints.map((point) => (
+                  <span
+                    key={point}
+                    className="rounded-full border border-white/10 bg-white/3 px-3 py-1 text-[11px] text-white/75"
+                  >
+                    {point}
+                  </span>
+                ))}
+              </div>
+            </div>
+
             <div className="mx-auto mt-8 flex max-w-md flex-col gap-3 lg:mx-0">
               {contactDetails.map(({ icon: Icon, label, href }) => {
                 const content = (
@@ -96,10 +118,11 @@ export default function AboutSection() {
                   </span>
                 );
                 return href ? (
-                  
-                    <a key={label}
+                  <a
+                    key={label}
                     href={href}
-                    className="transition-colors hover:text-white">
+                    className="transition-colors hover:text-white"
+                  >
                     {content}
                   </a>
                 ) : (
@@ -109,14 +132,13 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* form side */}
           <div className="rounded-[2rem] bg-[#012933] p-6 sm:p-8 lg:p-10">
             <h3 className="text-lg font-semibold text-white sm:text-xl">
               Get in touch
             </h3>
             <p className="mt-1 text-xs text-white/60 sm:text-sm">
-              Have a question or need help? Send us a message and our team
-              will get back to you.
+              Have a question or need help? Send us a message and our team will
+              get back to you.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
@@ -193,6 +215,14 @@ export default function AboutSection() {
                   </>
                 )}
               </button>
+
+              <div className="flex items-center justify-between gap-3 border-t border-white/10 pt-3 text-[11px] text-white/55">
+                <span>Privacy-first support</span>
+                <span className="inline-flex items-center gap-1 text-white/80">
+                  Request callback
+                  <ArrowRight className="h-3 w-3" />
+                </span>
+              </div>
             </form>
           </div>
         </div>
