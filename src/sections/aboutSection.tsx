@@ -4,7 +4,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  ShieldCheck,
   ArrowRight,
 } from "lucide-react";
 import { securityPoints } from "../dataStore/datafile";
@@ -92,7 +91,7 @@ export default function AboutSection() {
 
             <div className="mt-8 rounded-[24px] border border-white/10 bg-[#012933] p-4">
               <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-white">
-                <ShieldCheck className="h-4 w-4 text-[#F1D7B5]" />
+                {/* <ShieldCheck className="h-4 w-4 text-[#F1D7B5]" /> */}
                 Built for secure everyday transfers
               </div>
               <div className="flex flex-wrap gap-2">
