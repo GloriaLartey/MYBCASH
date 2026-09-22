@@ -199,11 +199,11 @@ export const FAQS = [
     answer:
       "Yes. MYBCASH provides a virtual card designed for online shopping, subscriptions, and international payments. You can request your virtual card directly from the app and manage it from your wallet.",
   },
-  {
-    question: "Can I use MYBCASH to pay bills and buy airtime?",
-    answer:
-      "You can conveniently buy mobile airtime and pay electricity bills directly from your MYBCASH wallet without switching to another service.",
-  },
+  // {
+  //   question: "Can I use MYBCASH to pay bills and buy airtime?",
+  //   answer:
+  //     "You can conveniently buy mobile airtime and pay electricity bills directly from your MYBCASH wallet without switching to another service.",
+  // },
 ];
 
 //--------------------Footer data--------------------------
