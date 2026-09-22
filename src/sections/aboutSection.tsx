@@ -6,7 +6,7 @@ import {
   MapPin,
   ArrowRight,
 } from "lucide-react";
-import { securityPoints } from "../dataStore/datafile";
+// import { securityPoints } from "../dataStore/datafile";
 
 const contactDetails = [
   {
