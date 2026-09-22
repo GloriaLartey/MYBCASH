@@ -68,7 +68,7 @@ export default function HeroSection() {
             <li key={link}>
               <button
                 onClick={() => handleNavClick(link)}
-                className={`relative text-sm font-medium transition-colors duration-300 ${
+                className={`relative text-xs font-medium transition-colors duration-300 ${
                   activeLink === link
                     ? "bg-gradient-to-r from-[#F0D6B4] to-[#EB6CA1] bg-clip-text text-transparent"
                     : "text-white/80 hover:text-white"
